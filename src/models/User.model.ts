@@ -6,6 +6,9 @@ export interface User extends Document {
   email: string;
   mobileNumber: string;
   password: string;
+  gender?: string,
+  profilePic?: string,
+  profilePicId: string,
   otp?: number;
   otpExp?: Date;
   verified?: boolean;
@@ -46,6 +49,18 @@ const userSchema: Schema<User> = new Schema(
     password: {
       type: String,
       required: true,
+    },
+
+    profilePic: {
+      type: String,
+      default: 'https://res.cloudinary.com/dlzi244at/image/upload/v1763367677/defaultPersonImage_exseqc.avif'
+    },
+
+    profilePicId: String,
+
+    gender: {
+      type: String,
+      default: "Not Specified"
     },
 
     otp: Number,

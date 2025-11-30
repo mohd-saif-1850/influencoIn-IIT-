@@ -7,7 +7,7 @@ declare module "next-auth" {
     email?: string;
     mobileNumber?: string;
     verified?: boolean;
-    role?: string
+    role?: string,
   }
 
   interface Session {
