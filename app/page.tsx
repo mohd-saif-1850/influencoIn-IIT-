@@ -353,7 +353,15 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
             <div>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-[#0ABBB7] to-[#7A4CD9] rounded-lg text-white flex items-center justify-center font-bold">IN</div>
+                <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
+                  <Image 
+                    src="/InfluencoLogo.png" 
+                    alt="Influenco Logo" 
+                    width={40} 
+                    height={40} 
+                    className="object-contain"
+                  />
+              </div>
                 <div>
                   <div className="font-bold text-lg">INFLUENCO</div>
                   <div className="text-sm text-[#0A1A3F]/60">AI • Trust • Collaboration</div>
