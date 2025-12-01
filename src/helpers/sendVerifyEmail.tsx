@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import { render } from "@react-email/render";
 import { VerifyOtpEmail } from "@/src/emails/sendVerificationEmail";
 
@@ -8,32 +8,28 @@ interface SendVerifyEmailProps {
   otp: string;
 }
 
-export const sendVerifyEmail = async ({ email, username, otp }: SendVerifyEmailProps) => {
-  try {
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+const resend = new Resend(process.env.RESEND_API_KEY);
 
+export const sendVerifyEmail = async ({
+  email,
+  username,
+  otp,
+}: SendVerifyEmailProps) => {
+  try {
     const emailHtml = await render(
       <VerifyOtpEmail username={username} otp={otp} />
     );
 
-    const mailOptions = {
-      from: `"Influenco" <${process.env.EMAIL_USER}>`,
+    const response = await resend.emails.send({
+      from: "Influenco <support@influenco.in>",
       to: email,
       subject: "Verify your Influenco account",
       html: emailHtml,
-    };
+    });
 
-    await transporter.sendMail(mailOptions);
-
-    return { success: true, message: "Verification email sent successfully" };
+    return { success: true, message: "Verification email sent successfully", data: response };
   } catch (error) {
     console.error("Error sending email:", error);
-    return { success: false, message: "Failed to send verification email" };
+    return { success: false, message: "Failed to send verification email", error };
   }
 };
