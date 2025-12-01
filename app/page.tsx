@@ -21,6 +21,7 @@ import {
   Globe,
   BarChart3,
   Workflow,
+  ChevronDown
 } from "lucide-react";
 import { useSession } from "next-auth/react";
 
@@ -28,6 +29,7 @@ export default function Home() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [loadingAuth, setLoadingAuth] = useState(true);
   const { data: session } = useSession();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
 
   const features = [
@@ -44,6 +46,41 @@ export default function Home() {
     { icon: <FileCheck size={24} />, title: "Deliverable Checker", text: "Track deadlines, uploads and approval stages in one place." },
     { icon: <Globe size={24} />, title: "Global Compliance", text: "International payment and contract compliance built in." },
   ];
+
+  const toggleFAQ = (index: number) => {
+  setOpenFAQ(openFAQ === index ? null : index);
+};
+
+const faqItems = [
+  {
+    question: "What is Influenco?",
+    answer: "Influenco is an AI-first platform that helps creators and brands collaborate through precision matching, trust-based verification, automated contracts and secure escrow payouts."
+  },
+  {
+    question: "How does AI matching work?",
+    answer: "Our AI analyzes audience quality, niche relevance, past performance, engagement authenticity and campaign fit to recommend the best creator-brand matches."
+  },
+  {
+    question: "Is Influenco safe for payments?",
+    answer: "Yes. Influenco uses secure escrow to hold payments until deliverables are completed and approved, ensuring fairness for both creators and brands."
+  },
+  {
+    question: "Can brands track performance?",
+    answer: "Brands get a detailed dashboard with KPIs, ROI insights, audience analytics and performance trends to measure campaign effectiveness."
+  },
+  {
+    question: "How does Influenco verify creators?",
+    answer: "We calculate a trust score using audience authenticity checks, engagement depth, fraud detection and content reliability metrics."
+  },
+  {
+    question: "Is Influenco suitable for agencies?",
+    answer: "Yes. Agencies can use team workspaces, collaborate with clients, manage multiple campaigns and automate all stages of the influencer workflow."
+  },
+  {
+    question: "Is the platform free to use?",
+    answer: "Influenco offers flexible plans for creators and brands. You can use essential tools for free and upgrade for advanced features like analytics and automation."
+  }
+];
 
   return (
     <div className="min-h-screen bg-white text-[#0A1A3F] antialiased relative overflow-x-hidden">
@@ -355,48 +392,126 @@ export default function Home() {
           </div>
         </section>
 
-        <footer className="border-t border-neutral-200 py-14 bg-white">
-          <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div>
+        <section className="py-20 bg-[#F7FBFC]">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center">Frequently Asked Questions</h2>
+            <p className="mt-3 text-center text-[#0A1A3F]/70 max-w-2xl mx-auto">
+              Answers to common questions creators and brands ask about Influenco.
+            </p>
+
+            <div className="mt-10 space-y-4">
+              {faqItems.map((item, index) => (
+                <div key={index} className="border rounded-xl bg-white shadow-sm">
+                  
+                  <button
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full flex justify-between items-center px-5 py-4 text-left text-[#0A1A3F] font-medium"
+                  >
+                    {item.question}
+
+                    <ChevronDown
+                      className={`w-5 h-5 text-[#0ABBB7] transition-transform duration-300 ${
+                        openFAQ === index ? "rotate-180" : "rotate-0"
+                      }`}
+                    />
+                  </button>
+
+                  <div
+                    className={`transition-all duration-300 overflow-hidden ${
+                      openFAQ === index ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <div className="px-5 pb-5 text-sm text-[#0A1A3F]/70 leading-relaxed">
+                      {item.answer}
+                    </div>
+                  </div>
+
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
+
+
+        <footer className="border-t border-neutral-200 py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+
+            <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
-                  <Image 
-                    src="/InfluencoLogo.png" 
-                    alt="Influenco Logo" 
-                    width={40} 
-                    height={40} 
+                  <Image
+                    src="/InfluencoLogo.png"
+                    alt="Influenco Logo"
+                    width={40}
+                    height={40}
                     className="object-contain"
                   />
-              </div>
+                </div>
+
                 <div>
                   <div className="font-bold text-lg">INFLUENCO</div>
                   <div className="text-sm text-[#0A1A3F]/60">AI • Trust • Collaboration</div>
                 </div>
               </div>
-              <p className="mt-3 text-sm text-[#0A1A3F]/70 max-w-sm">The AI-first platform for trusted influencer collaborations.</p>
+
+              <p className="text-sm text-[#0A1A3F]/70 max-w-sm leading-relaxed">
+                Nirman<br />
+                2nd Floor, Sudha & Shankar Innovation Hub,<br />
+                IIT Madras, Chennai 600 036, India
+              </p>
             </div>
 
             <div>
-              <div className="font-semibold mb-3">Product</div>
+              <div className="font-semibold mb-3 text-[#0A1A3F]">Product</div>
               <ul className="space-y-2 text-sm text-[#0A1A3F]/70">
                 <li><Link href="/features" className="hover:text-[#7A4CD9]">Features</Link></li>
-                <li><Link href="#how-it-works" className="hover:text-[#7A4CD9]">How It Works</Link></li>
                 <li><Link href="/pricing" className="hover:text-[#7A4CD9]">Pricing</Link></li>
+                <li><Link href="#how-it-works" className="hover:text-[#7A4CD9]">How It Works</Link></li>
               </ul>
             </div>
 
             <div>
-              <div className="font-semibold mb-3">Company</div>
+              <div className="font-semibold mb-3 text-[#0A1A3F]">Company</div>
               <ul className="space-y-2 text-sm text-[#0A1A3F]/70">
                 <li><Link href="/about" className="hover:text-[#7A4CD9]">About Us</Link></li>
-                <li><Link href="/careers" className="hover:text-[#7A4CD9]">Contact Us</Link></li>
-                {/* <li><Link href="/blog" className="hover:text-[#7A4CD9]"></Link></li> */}
+                <li><Link href="/careers" className="hover:text-[#7A4CD9]">Careers</Link></li>
+                <li><Link href="/contact" className="hover:text-[#7A4CD9]">Contact</Link></li>
               </ul>
             </div>
+
+            <div>
+              <div className="font-semibold cursor-pointer mb-3 text-[#0A1A3F]">Send a Message</div>
+
+              <div className="space-y-3">
+                <input
+                  type="text"
+                  placeholder="Your email"
+                  className="w-full px-4 py-2 border rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0ABBB7]/40"
+                />
+
+                <textarea
+                  placeholder="Write your message…"
+                  rows={3}
+                  className="w-full px-4 py-2 border rounded-lg text-sm bg-white resize-none focus:outline-none focus:ring-2 focus:ring-[#0ABBB7]/40"
+                />
+
+                <button
+                  className="w-full bg-gradient-to-r from-[#0ABBB7] to-[#069b96] text-white rounded-lg text-sm py-2 font-medium hover:shadow-lg transition"
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+
           </div>
 
-          <div className="text-center text-sm text-[#0A1A3F]/60 mt-10">© {new Date().getFullYear()} Influenco. All rights reserved.</div>
+          <div className="text-center text-sm text-[#0A1A3F]/60 mt-12">
+            © {new Date().getFullYear()} Influenco. All rights reserved.
+          </div>
         </footer>
+
       </main>
     </div>
   );

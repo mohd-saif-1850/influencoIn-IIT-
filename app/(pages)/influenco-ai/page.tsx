@@ -136,14 +136,14 @@ export default function InfluencoAI() {
             <div className="flex justify-end gap-3">
               <button
                 onClick={cancelReset}
-                className="px-4 py-2 rounded-lg border text-[#0A1A3F]"
+                className="px-4 cursor-pointer py-2 rounded-lg border text-[#0A1A3F]"
               >
                 Cancel
               </button>
 
               <button
                 onClick={confirmReset}
-                className="px-4 py-2 rounded-lg bg-[#0ABBB7] text-white"
+                className="px-4 py-2 cursor-pointer rounded-lg bg-[#0ABBB7] text-white"
               >
                 Continue
               </button>
@@ -159,7 +159,7 @@ export default function InfluencoAI() {
 
           <button
             onClick={resetChat}
-            className="text-sm text-[#0ABBB7] underline"
+            className="text-sm cursor-pointer text-[#0ABBB7] underline"
           >
             New Chat
           </button>
@@ -173,8 +173,8 @@ export default function InfluencoAI() {
             }}
             className={`px-4 py-2 rounded-lg text-sm transition ${
               activeTab === "influencer"
-                ? "bg-[#0ABBB7] text-white"
-                : "bg-white border border-gray-200"
+                ? "bg-[#0ABBB7] cursor-not-allowed text-white"
+                : "bg-white cursor-pointer border border-gray-200"
             }`}
           >
             Influencer
@@ -187,8 +187,8 @@ export default function InfluencoAI() {
             }}
             className={`px-4 py-2 rounded-lg text-sm transition ${
               activeTab === "brand"
-                ? "bg-[#0ABBB7] text-white"
-                : "bg-white border border-gray-200"
+                ? "bg-[#0ABBB7] cursor-not-allowed text-white"
+                : "bg-white cursor-pointer border border-gray-200"
             }`}
           >
             Brand
@@ -207,8 +207,8 @@ export default function InfluencoAI() {
                 }}
                 className={`px-4 py-2 rounded-full text-sm whitespace-nowrap transition shadow-sm ${
                   activeCategory === cat
-                    ? "bg-[#0ABBB7] text-white shadow-md"
-                    : "bg-white border border-gray-200 hover:bg-[#0ABBB7] hover:text-white"
+                    ? "bg-[#0ABBB7] cursor-not-allowed text-white shadow-md"
+                    : "bg-white border cursor-pointer border-gray-200 hover:bg-[#0ABBB7] hover:text-white"
                 }`}
               >
                 {cat}
@@ -314,7 +314,7 @@ export default function InfluencoAI() {
             }}
             placeholder="Write a message..."
             className="flex-1 bg-transparent outline-none text-[#0A1A3F] placeholder-gray-400 resize-none overflow-hidden"
-            rows={1}
+            rows={2}
             style={{
               maxHeight: "80px" 
             }}
@@ -323,7 +323,7 @@ export default function InfluencoAI() {
           <button
             onClick={() => sendMessage()}
             disabled={loading}
-            className="w-11 h-11 bg-[#0ABBB7] hover:bg-[#089f9b] transition rounded-xl flex items-center justify-center text-white shadow disabled:opacity-50"
+            className="w-11 cursor-pointer h-11 bg-[#0ABBB7] hover:bg-[#089f9b] transition rounded-xl flex items-center justify-center text-white shadow disabled:opacity-50"
           >
             <SendHorizontal size={20} />
           </button>
