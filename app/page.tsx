@@ -125,15 +125,21 @@ export default function Home() {
               <div className="rounded-3xl bg-white/85 backdrop-blur-xl border border-white/30 shadow-2xl p-6 transform transition-all duration-400 hover:-translate-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#0ABBB7] to-[#7A4CD9] flex items-center justify-center text-white font-bold">
-                      IN
-                    </div>
+                    <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
+                      <Image 
+                        src="/InfluencoLogo.png" 
+                        alt="Influenco Logo" 
+                        width={40} 
+                        height={40} 
+                        className="object-contain"
+                      />
+                  </div>
                     <div>
                       <div className="font-semibold">Influenco AI Dashboard</div>
                       <div className="text-xs text-[#0A1A3F]/60">Campaign overview</div>
                     </div>
                   </div>
-                  <div className="text-xs text-[#0A1A3F]/60">v2.4</div>
+                  <div className="text-xs text-[#0A1A3F]/60">v1.0</div>
                 </div>
 
                 <div className="mt-5 grid grid-cols-3 gap-3">
@@ -149,7 +155,7 @@ export default function Home() {
 
                 <div className="mt-5 space-y-3">
                   <InfoRow label="Active Campaigns" value="12" />
-                  <InfoRow label="Pending Payouts" value="$8,200" />
+                  <InfoRow label="Pending Payouts" value="₹8,200" />
                   <InfoRow label="Matched Creators" value="34" />
                 </div>
 
@@ -221,7 +227,7 @@ export default function Home() {
                     </div>
                     <div className="p-3 bg-white rounded-lg border text-center">
                       <div className="text-sm text-[#0A1A3F]/70">Payouts</div>
-                      <div className="font-semibold">$8.2k</div>
+                      <div className="font-semibold">₹8.2k</div>
                     </div>
                   </div>
 
@@ -277,7 +283,7 @@ export default function Home() {
                   </div>
                   <div className="p-4 bg-white rounded-lg border">
                     <div className="text-sm text-[#0A1A3F]/70">Budget</div>
-                    <div className="font-semibold text-xl mt-2">$12.5k</div>
+                    <div className="font-semibold text-xl mt-2">₹35.5k</div>
                   </div>
                 </div>
 
