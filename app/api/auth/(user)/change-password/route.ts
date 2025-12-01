@@ -3,7 +3,7 @@ import dbConnect from "@/src/lib/dbConnect";
 import { User } from "@/src/models/User.model";
 import bcrypt from "bcryptjs";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/option";
+import { authOptions } from "@/app/api/auth/[...nextauth]/options";
 
 export async function PATCH(request: Request) {
   try {

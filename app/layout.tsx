@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navbar from "@/src/components/Navbar";
+import SessionWrapper from "@/src/SessionWrapper";
 
 
 export default function RootLayout({
@@ -11,8 +12,10 @@ export default function RootLayout({
     <html lang="en">
       <body
       >
+      <SessionWrapper>
         <Navbar />
-        <div className="mt-[-50px]">{children}</div>
+        <div className="">{children}</div>
+      </SessionWrapper>
       </body>
     </html>
   );
