@@ -382,9 +382,9 @@ export default function Home() {
             <div>
               <div className="font-semibold mb-3">Company</div>
               <ul className="space-y-2 text-sm text-[#0A1A3F]/70">
-                <li><Link href="/about" className="hover:text-[#7A4CD9]">About</Link></li>
-                <li><Link href="/careers" className="hover:text-[#7A4CD9]">Careers</Link></li>
-                <li><Link href="/blog" className="hover:text-[#7A4CD9]">Blog</Link></li>
+                <li><Link href="/about" className="hover:text-[#7A4CD9]">About Us</Link></li>
+                <li><Link href="/careers" className="hover:text-[#7A4CD9]">Contact Us</Link></li>
+                {/* <li><Link href="/blog" className="hover:text-[#7A4CD9]"></Link></li> */}
               </ul>
             </div>
           </div>
