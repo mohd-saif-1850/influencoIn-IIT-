@@ -16,6 +16,7 @@ import {
   Settings,
   LogOut,
 } from "lucide-react";
+import Image from "next/image";
 
 function formatCurrency(n: number) {
   return n >= 1000 ? "₹" + (n / 1000).toFixed(1) + "k" : "₹" + n;
@@ -131,7 +132,16 @@ export default function DashboardPage() {
       <div className="flex h-screen">
         <aside className="w-72 bg-white border-r hidden md:flex flex-col px-4 py-6 gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-[#0ABBB7] to-[#7A4CD9] flex items-center justify-center text-white font-bold">IN</div>
+            <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
+              <Image
+                src="/InfluencoLogo.png"
+                alt="Influenco Logo"
+                width={40}
+                height={40}
+                className="object-contain"
+                priority
+              />
+            </div>
             <div>
               <div className="text-sm font-semibold">INFLUENCO</div>
               <div className="text-xs text-[#0A1A3F]/60">AI • Trust • Collab</div>
