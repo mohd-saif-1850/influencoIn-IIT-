@@ -52,21 +52,10 @@ export default function Home() {
         <div className="absolute -right-56 bottom-0 w-[680px] h-[680px] rounded-full bg-[#7A4CD9]/12 blur-[160px] animate-[pulse_10s_infinite]" />
       </div>
 
-      <div className="bg-[#E8F7FA] py-4">
-        <div className="max-w-6xl mx-auto px-6 flex justify-center">
-          <div className="bg-white px-5 py-2 rounded-full text-sm flex items-center gap-3 border shadow-sm">
-            <div className="w-2 h-2 bg-[#7A4CD9] rounded-full" />
-            Trusted by 10,000+ creators & brands
-          </div>
-        </div>
-      </div>
-
       <header className="pt-20 pb-24">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 flex flex-col gap-6">
-            <div className="w-fit bg-white/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/30 shadow-sm">
-              <span className="text-sm font-medium">Trusted by top creators & brands</span>
-            </div>
+            
 
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
               Where Influence{" "}

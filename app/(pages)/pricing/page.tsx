@@ -1,111 +1,87 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Check, Zap, Star, BadgeCheck, Shield } from "lucide-react";
+import { BadgeCheck, Star, Zap, Shield, Crown } from "lucide-react";
 
 export default function PricingPage() {
-  const [yearly, setYearly] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  const starterPrice = yearly ? "₹499/mo" : "₹699/mo";
-  const growthPrice = yearly ? "₹999/mo" : "₹1299/mo";
-  const enterprisePrice = yearly ? "₹2499/mo" : "₹2999/mo";
-
   return (
     <div className="min-h-screen bg-white text-[#0A1A3F] antialiased mt-10">
       <section className="py-16 text-center">
         <h1 className="text-4xl font-extrabold">
-          Simple, Transparent{" "}
+          Influencer{" "}
           <span className="bg-gradient-to-r from-[#0ABBB7] to-[#7A4CD9] bg-clip-text text-transparent">
-            Pricing
+            Budget Filters
           </span>
         </h1>
-        <p className="mt-3 text-[#0A1A3F]/70 max-w-xl mx-auto text-lg">
-          Plans built to support creators, brands and fast-growing teams. No hidden fees.
-        </p>
 
-        <div className="flex justify-center mt-8">
-          <div className="flex items-center gap-3 bg-[#E8F7FA] px-4 py-2 rounded-xl border shadow-sm">
-            <button
-              onClick={() => setYearly(false)}
-              className={`px-4 py-2 cursor-pointer rounded-md text-sm transition-all ${
-                !yearly
-                  ? "bg-[#0ABBB7] text-white shadow-md"
-                  : "text-[#0A1A3F] hover:text-[#0ABBB7]"
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setYearly(true)}
-              className={`px-4 py-2 rounded-md cursor-pointer text-sm transition-all ${
-                yearly
-                  ? "bg-[#7A4CD9] text-white shadow-md"
-                  : "text-[#0A1A3F] hover:text-[#7A4CD9]"
-              }`}
-            >
-              Yearly
-            </button>
-          </div>
-        </div>
+        <p className="mt-3 text-[#0A1A3F]/70 max-w-xl mx-auto text-lg">
+          Choose influencer categories based on industry-standard budget ranges.
+        </p>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 pb-20 grid gap-10 md:grid-cols-3">
+      <section className="max-w-7xl mx-auto px-6 pb-20 grid gap-10 md:grid-cols-4">
+
         <PricingCard
           icon={<Star className="text-[#0ABBB7]" />}
-          title="Starter"
-          price={starterPrice}
-          badge="For beginners"
+          title="Nano Influencers"
+          badge="₹500 – ₹3,000"
           features={[
-            "AI creator matching",
-            "Basic trust score",
-            "Up to 3 campaigns",
-            "Email support",
+            "Best for hyperlocal promotions",
+            "High engagement rates",
+            "Audience trust is strong",
+            "Cost-effective for small brands",
+            "Ideal for product seeding",
           ]}
           color="from-[#0ABBB7] to-[#7A4CD9]"
-          loggedIn={loggedIn}
         />
 
         <PricingCard
           icon={<Zap className="text-[#7A4CD9]" />}
-          title="Growth"
-          price={growthPrice}
-          badge="Most popular"
+          title="Micro Influencers"
+          badge="₹3,000 – ₹20,000"
           features={[
-            "Advanced AI matching",
-            "Detailed analytics",
-            "Smart contracts",
-            "Escrow payments",
-            "Up to 10 campaigns",
-            "Priority support",
+            "More consistent creator performance",
+            "Highly targeted audience niches",
+            "Better ROI for campaigns",
+            "Good for paid collaborations",
+            "Stronger conversion potential",
           ]}
           highlighted
           color="from-[#7A4CD9] to-[#0ABBB7]"
-          loggedIn={loggedIn}
         />
 
         <PricingCard
           icon={<Shield className="text-[#0ABBB7]" />}
-          title="Enterprise"
-          price={enterprisePrice}
-          badge="For teams"
+          title="Mid-tier Influencers"
+          badge="₹20,000 – ₹1,00,000"
           features={[
-            "Full analytics suite",
-            "Unlimited campaigns",
-            "Dedicated manager",
-            "Custom integrations",
-            "API access",
-            "24/7 support",
+            "Large and loyal audience base",
+            "Strong brand recall",
+            "Suitable for performance campaigns",
+            "Professional content quality",
+            "Ideal for brand storytelling",
           ]}
           color="from-[#0ABBB7] to-[#0A1A3F]"
-          loggedIn={loggedIn}
+        />
+
+        <PricingCard
+          icon={<Crown className="text-[#7A4CD9]" />}
+          title="Macro Influencers"
+          badge="₹1,00,000+"
+          features={[
+            "Massive audience reach",
+            "High brand visibility",
+            "Premium partnership category",
+            "Best for nationwide campaigns",
+            "Strong influence across platforms",
+          ]}
+          color="from-[#7A4CD9] to-[#0ABBB7]"
         />
       </section>
     </div>
   );
 }
 
-function PricingCard({ icon, title, price, badge, features, highlighted, color, loggedIn }: any) {
+function PricingCard({ icon, title, badge, features, highlighted, color }: any) {
   return (
     <div
       className={`p-8 rounded-3xl border bg-white shadow-sm flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:scale-[1.03] hover:border-[#0ABBB7] ${
@@ -120,8 +96,7 @@ function PricingCard({ icon, title, price, badge, features, highlighted, color, 
           <div className="font-semibold">{title}</div>
         </div>
 
-        <div className="text-3xl font-bold">{price}</div>
-        <div className="text-sm text-[#0A1A3F]/60 mt-1">{badge}</div>
+        <div className="text-xl font-bold">{badge}</div>
 
         <div className="mt-6 space-y-3">
           {features.map((f: string, i: number) => (
@@ -133,12 +108,12 @@ function PricingCard({ icon, title, price, badge, features, highlighted, color, 
         </div>
       </div>
 
-      <Link
-          href="#"
-          className={`mt-8 w-full text-center py-3 rounded-xl cursor-not-allowed font-semibold text-white bg-gradient-to-r ${color} shadow-lg transition-all hover:shadow-xl`}
-        >
-          Get Started
-        </Link>
+      <button
+        disabled
+        className={`mt-8 w-full text-center py-3 rounded-xl cursor-not-allowed opacity-70 font-semibold text-white bg-gradient-to-r ${color} shadow-lg`}
+      >
+        Coming Soon
+      </button>
     </div>
   );
 }
