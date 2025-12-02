@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { SendHorizontal, User, Bot, X } from "lucide-react";
+import { SendHorizontal, User, Bot } from "lucide-react";
 
 export default function InfluencoAI() {
   const [messages, setMessages] = useState<
@@ -17,8 +17,9 @@ export default function InfluencoAI() {
   const [showConfirm, setShowConfirm] = useState(false);
 
   const bottomRef = useRef<HTMLDivElement | null>(null);
+  const inputRef = useRef<HTMLTextAreaElement | null>(null);
 
-  const categories = [
+  const influencerCategories = [
     "Fashion",
     "Tech",
     "Fitness",
@@ -29,10 +30,24 @@ export default function InfluencoAI() {
     "Finance",
     "Education",
     "Influencer Analytics",
-    "Brand Strategy",
     "Trending",
     "YouTube Content",
     "Content Ideas"
+  ];
+
+  const brandCategories = [
+    "Market Research",
+    "Campaign Strategy",
+    "Audience Targeting",
+    "Brand Positioning",
+    "Product Promotion",
+    "Budget Planning",
+    "Performance Insights",
+    "Brand Collaborations",
+    "Competitor Analysis",
+    "Industry Trends",
+    "Marketing Funnels",
+    "Ad Optimization"
   ];
 
   const getTime = () =>
@@ -197,13 +212,14 @@ export default function InfluencoAI() {
 
         <div className="w-full overflow-x-auto pb-3">
           <div className="flex gap-3 min-w-max">
-            {categories.map((cat, i) => (
+            {(activeTab === "influencer" ? influencerCategories : brandCategories).map((cat, i) => (
               <button
                 key={i}
                 onClick={() => {
                   const p = generatePrompt(cat);
                   setInput(p);
                   setActiveCategory(cat);
+                  setTimeout(() => inputRef.current?.focus(), 50);
                 }}
                 className={`px-4 py-2 rounded-full text-sm whitespace-nowrap transition shadow-sm ${
                   activeCategory === cat
@@ -298,10 +314,10 @@ export default function InfluencoAI() {
 
         <div className="mt-4 flex items-center gap-3 bg-white/80 backdrop-blur-xl border border-gray-200 rounded-2xl px-4 py-3 shadow-sm">
           <textarea
+            ref={inputRef}
             value={input}
             onChange={(e) => {
               setInput(e.target.value);
-              setActiveCategory(null);
 
               e.target.style.height = "auto";
               e.target.style.height = Math.min(e.target.scrollHeight, 80) + "px"; 

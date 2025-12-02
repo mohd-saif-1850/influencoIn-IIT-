@@ -67,6 +67,20 @@ export default function VerifyPage() {
     setLoading(false);
   };
 
+  
+
+  const resendOtp = async () => {
+    try {
+      const res = await axios.post("api/auth/resend-verify-otp",{
+        email
+      })
+
+      setMsg("Otp Send Again Successfully !");
+    } catch (error : any) {
+      console.log("Thier is an Error in Resend Otp :", error);
+    }
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center px-4 bg-white">
       <div className="w-full max-w-sm p-8 border border-neutral-200 rounded-2xl shadow-sm bg-white">
@@ -97,7 +111,7 @@ export default function VerifyPage() {
         </div>
 
         {msg && (
-          <p className="text-center text-sm mb-3 text-red-500 font-medium">
+          <p className="text-center text-sm mb-3 text-green-500 font-medium">
             {msg}
           </p>
         )}
@@ -105,14 +119,14 @@ export default function VerifyPage() {
         <button
           onClick={submitOtp}
           disabled={loading}
-          className="w-full px-4 py-2 bg-gradient-to-r from-[#0ABBB7] to-[#7A4CD9] text-white font-semibold rounded-2xl transition disabled:opacity-50"
+          className="w-full px-4 py-2 cursor-pointer bg-gradient-to-r from-[#0ABBB7] to-[#7A4CD9] text-white font-semibold rounded-2xl transition disabled:opacity-50"
         >
           {loading ? "Verifying..." : "Verify & Continue"}
         </button>
 
         <p className="text-center mt-4 text-sm text-neutral-600">
           Didn’t receive the code?{" "}
-          <button className="text-[#7A4CD9] font-medium cursor-pointer">
+          <button onClick={resendOtp} className="text-[#7A4CD9] font-medium cursor-pointer">
             Resend
           </button>
         </p>
