@@ -13,6 +13,7 @@ export interface User extends Document {
   otpExp?: Date;
   verified?: boolean;
   role?: string;
+  category?: string;
   subscription?: boolean;
   otpExpiresAt?: Date;
 }
@@ -75,6 +76,11 @@ const userSchema: Schema<User> = new Schema(
     role: {
       type: String,
       default: "user",
+      enum: ["Influencer","Brand"]
+    },
+
+    category: {
+      type: String,
     },
 
     subscription: {

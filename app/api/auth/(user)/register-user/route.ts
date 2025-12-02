@@ -7,7 +7,7 @@ import dbConnect from "@/src/lib/dbConnect";
 export async function POST(request: Request) {
   try {
     await dbConnect();
-    const { username, mobileNumber, email, password } = await request.json()
+    const { username, mobileNumber, email, password, role, category } = await request.json()
 
     if (!username) {
       throw new Error("Username is Required !");
@@ -23,6 +23,14 @@ export async function POST(request: Request) {
 
     if (!password) {
       throw new Error("Password is Required !");
+    }
+
+    if (!role) {
+      throw new Error("Role is Required !")
+    }
+
+    if (!category) {
+      throw new Error("Category is Required !")
     }
 
     const existingUser = await User.findOne({ 
@@ -55,6 +63,8 @@ export async function POST(request: Request) {
       otp,
       otpExp,
       otpExpiresAt,
+      role,
+      category
     });
 
     await newUser.save();
