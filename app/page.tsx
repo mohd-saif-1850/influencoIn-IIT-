@@ -54,7 +54,7 @@ export default function Home() {
 const faqItems = [
   {
     question: "What is Influenco?",
-    answer: "Influenco is an AI-first platform that helps creators and brands collaborate through precision matching, trust-based verification, automated contracts and secure escrow payouts."
+    answer: "Influenco is an AI driven platform that helps creators and brands collaborate through precision matching, trust-based verification, automated contracts and secure escrow payouts."
   },
   {
     question: "How does AI matching work?",
@@ -102,7 +102,7 @@ const faqItems = [
             </h1>
 
             <p className="text-lg text-[#0A1A3F]/80 max-w-xl">
-              AI-first platform for creator-brand collaborations. Precision matches, verified trust scores, automated contracts and secure escrow payouts — all in one intelligent dashboard.
+              AI driven platform for creator-brand collaborations. Precision matches, verified trust scores, automated contracts and secure escrow payouts — all in one intelligent dashboard.
             </p>
 
             <div className="flex flex-wrap gap-4 items-center">
