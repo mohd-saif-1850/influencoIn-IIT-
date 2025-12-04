@@ -359,7 +359,8 @@ const faqItems = [
                   { name: "Steve Jobs", img: "/steve.jpg", msg: "Simplicity builds powerful digital experiences." },
                   { name: "Bill Gates", img: "/bill.jpg", msg: "Data-driven collaboration unlocks true efficiency." },
                   { name: "Mark Zuckerberg", img: "/mark.jpg", msg: "The creator economy grows through intelligent tools." },
-                  { name: "Sundar Pichai", img: "/sundar.jpg", msg: "AI will power the next era of digital productivity." }
+                  { name: "Sundar Pichai", img: "/sundar.jpg", msg: "AI will power the next era of digital productivity." },
+                  { name: "Raiyyan", img: "/raiyyan.jpg", msg: "Influence isn’t about what social media shows you - it’s about what you choose to consume, create, and promote. Filth or growth… the choice is always yours." }
                 ].map((p, i) => (
                   <div key={i} className="relative group/card min-w-[300px]">
                     <div className="absolute -inset-px rounded-2xl opacity-0 group-hover/card:opacity-80 transition-opacity duration-300 bg-gradient-to-b from-[#0ABBB7] to-[#7A4CD9] blur-xl" />
@@ -379,7 +380,8 @@ const faqItems = [
                   { name: "Steve Jobs", img: "/steve.jpg", msg: "Simplicity builds powerful digital experiences." },
                   { name: "Bill Gates", img: "/bill.jpg", msg: "Data-driven collaboration unlocks true efficiency." },
                   { name: "Mark Zuckerberg", img: "/mark.jpg", msg: "The creator economy grows through intelligent tools." },
-                  { name: "Sundar Pichai", img: "/sundar.jpg", msg: "AI will power the next era of digital productivity." }
+                  { name: "Sundar Pichai", img: "/sundar.jpg", msg: "AI will power the next era of digital productivity." },
+                  { name: "Raiyyan", img: "/raiyyan.jpg", msg: "Influence isn’t about what social media shows you - it’s about what you choose to consume, create, and promote. Filth or growth… the choice is always yours." }
                 ].map((p, i) => (
                   <div key={`clone-${i}`} className="relative group/card min-w-[300px]">
                     <div className="absolute -inset-px rounded-2xl opacity-0 group-hover/card:opacity-80 transition-opacity duration-300 bg-gradient-to-b from-[#0ABBB7] to-[#7A4CD9] blur-xl" />
