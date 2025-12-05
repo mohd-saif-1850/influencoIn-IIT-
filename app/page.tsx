@@ -344,74 +344,147 @@ const faqItems = [
         </section>
 
         <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center">Voices That Inspire</h2>
-            <p className="mt-3 text-[#0A1A3F]/70 text-center max-w-2xl mx-auto">
-              Visionaries whose thinking aligns with Influenco’s mission.
-            </p>
+  <div className="max-w-7xl mx-auto px-6">
+    <h2 className="text-3xl font-bold text-center">Voices That Inspire</h2>
+    <p className="mt-3 text-[#0A1A3F]/70 text-center max-w-2xl mx-auto">
+      Visionaries whose thinking aligns with Influenco’s mission.
+    </p>
 
-            <div className="mt-12 overflow-hidden relative">
-              <div className="flex gap-8 w-max animate-marquee group">
+    <div className="mt-12 overflow-hidden relative">
+      <div className="flex gap-8 w-max animate-marquee group">
 
-                {[
-                  { name: "Elon Musk", img: "/elon.jpg", msg: "Intelligent platforms define the future of digital collaboration." },
-                  { name: "Jeff Bezos", img: "/jeff.jpg", msg: "Customer obsession drives great product ecosystems." },
-                  { name: "Steve Jobs", img: "/steve.jpg", msg: "Simplicity builds powerful digital experiences." },
-                  { name: "Bill Gates", img: "/bill.jpg", msg: "Data-driven collaboration unlocks true efficiency." },
-                  { name: "Mark Zuckerberg", img: "/mark.jpg", msg: "The creator economy grows through intelligent tools." },
-                  { name: "Sundar Pichai", img: "/sundar.jpg", msg: "AI will power the next era of digital productivity." },
-                  { name: "Raiyyan", img: "/raiyyan.jpg", msg: "Influence isn’t about what social media shows you - it’s about what you choose to consume, create, and promote. Filth or growth… the choice is always yours." }
-                ].map((p, i) => (
-                  <div key={i} className="relative group/card min-w-[300px]">
-                    <div className="absolute -inset-px rounded-2xl opacity-0 group-hover/card:opacity-80 transition-opacity duration-300 bg-gradient-to-b from-[#0ABBB7] to-[#7A4CD9] blur-xl" />
-                    <div className="relative bg-white w-[300px] h-[240px] border rounded-2xl p-6 shadow-sm group-hover/card:shadow-2xl transition-all duration-300 ">
-                      <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4">
-                        <Image src={p.img} width={80} height={80} alt={p.name} className="object-cover w-full h-full" />
-                      </div>
-                      <div className="text-center font-semibold">{p.name}</div>
-                      <p className="text-sm text-[#0A1A3F]/70 mt-2 text-center leading-relaxed">{p.msg}</p>
-                    </div>
-                  </div>
-                ))}
-
-                {[ 
-                  { name: "Elon Musk", img: "/elon.jpg", msg: "Intelligent platforms define the future of digital collaboration." },
-                  { name: "Jeff Bezos", img: "/jeff.jpg", msg: "Customer obsession drives great product ecosystems." },
-                  { name: "Steve Jobs", img: "/steve.jpg", msg: "Simplicity builds powerful digital experiences." },
-                  { name: "Bill Gates", img: "/bill.jpg", msg: "Data-driven collaboration unlocks true efficiency." },
-                  { name: "Mark Zuckerberg", img: "/mark.jpg", msg: "The creator economy grows through intelligent tools." },
-                  { name: "Sundar Pichai", img: "/sundar.jpg", msg: "AI will power the next era of digital productivity." },
-                  { name: "Raiyyan", img: "/raiyyan.jpg", msg: "Influence isn’t about what social media shows you - it’s about what you choose to consume, create, and promote. Filth or growth… the choice is always yours." }
-                ].map((p, i) => (
-                  <div key={`clone-${i}`} className="relative group/card min-w-[300px]">
-                    <div className="absolute -inset-px rounded-2xl opacity-0 group-hover/card:opacity-80 transition-opacity duration-300 bg-gradient-to-b from-[#0ABBB7] to-[#7A4CD9] blur-xl" />
-                    <div className="relative bg-white w-[300px] h-[240px] border rounded-2xl p-6 shadow-sm group-hover/card:shadow-2xl transition-all duration-300">
-                      <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4">
-                        <Image src={p.img} width={80} height={80} alt={p.name} className="object-cover w-full h-full" />
-                      </div>
-                      <div className="text-center font-semibold">{p.name}</div>
-                      <p className="text-sm text-[#0A1A3F]/70 mt-2 text-center leading-relaxed">{p.msg}</p>
-                    </div>
-                  </div>
-                ))}
-
+        {[
+          { 
+            name: "Elon Musk",
+            profession: "CEO of Tesla and SpaceX",
+            img: "/elon.jpg",
+            msg: "Intelligent platforms define the future of digital collaboration."
+          },
+          { 
+            name: "Jeff Bezos",
+            profession: "Founder of Amazon",
+            img: "/jeff.jpg",
+            msg: "Customer obsession drives great product ecosystems."
+          },
+          { 
+            name: "Steve Jobs",
+            profession: "Co-founder of Apple",
+            img: "/steve.jpg",
+            msg: "Simplicity builds powerful digital experiences."
+          },
+          { 
+            name: "Bill Gates",
+            profession: "Co-founder of Microsoft",
+            img: "/bill.jpg",
+            msg: "Data-driven collaboration unlocks true efficiency."
+          },
+          { 
+            name: "Mark Zuckerberg",
+            profession: "Founder and CEO of Meta",
+            img: "/mark.jpg",
+            msg: "The creator economy grows through intelligent tools."
+          },
+          { 
+            name: "Sundar Pichai",
+            profession: "CEO of Google and Alphabet",
+            img: "/sundar.jpg",
+            msg: "AI will power the next era of digital productivity."
+          },
+          { 
+            name: "Raiyyan",
+            profession: "Creator and Digital Strategist",
+            img: "/raiyyanF.jpg",
+            msg: "Influence isn’t about what social media shows you - it’s about what you choose to consume, create, and promote. Filth or growth… the choice is always yours."
+          }
+        ].map((p, i) => (
+          <div key={i} className="relative group/card min-w-[300px]">
+            <div className="absolute -inset-px rounded-2xl opacity-0 group-hover/card:opacity-80 transition-opacity duration-300 bg-gradient-to-b from-[#0ABBB7] to-[#7A4CD9] blur-xl" />
+            <div className="relative bg-white w-[300px] h-[260px] border rounded-2xl p-6 shadow-sm group-hover/card:shadow-2xl transition-all duration-300">
+              <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4">
+                <Image src={p.img} width={80} height={80} alt={p.name} className="object-cover w-full h-full" />
               </div>
+              <div className="text-center font-semibold">{p.name}</div>
+              <div className="text-center text-xs text-[#0A1A3F]/70">{p.profession}</div>
+              <p className="text-sm text-[#0A1A3F]/70 mt-3 text-center leading-relaxed">{p.msg}</p>
             </div>
           </div>
+        ))}
 
-          <style jsx>{`
-            @keyframes marquee {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
-            }
-            .animate-marquee {
-              animation: marquee 25s linear infinite;
-            }
-            .group:hover .animate-marquee {
-              animation-play-state: paused;
-            }
-          `}</style>
-        </section>
+        {[
+          { 
+            name: "Elon Musk",
+            profession: "CEO of Tesla and SpaceX",
+            img: "/elon.jpg",
+            msg: "Intelligent platforms define the future of digital collaboration."
+          },
+          { 
+            name: "Jeff Bezos",
+            profession: "Founder of Amazon",
+            img: "/jeff.jpg",
+            msg: "Customer obsession drives great product ecosystems."
+          },
+          { 
+            name: "Steve Jobs",
+            profession: "Co-founder of Apple",
+            img: "/steve.jpg",
+            msg: "Simplicity builds powerful digital experiences."
+          },
+          { 
+            name: "Bill Gates",
+            profession: "Co-founder of Microsoft",
+            img: "/bill.jpg",
+            msg: "Data-driven collaboration unlocks true efficiency."
+          },
+          { 
+            name: "Mark Zuckerberg",
+            profession: "Founder and CEO of Meta",
+            img: "/mark.jpg",
+            msg: "The creator economy grows through intelligent tools."
+          },
+          { 
+            name: "Sundar Pichai",
+            profession: "CEO of Google and Alphabet",
+            img: "/sundar.jpg",
+            msg: "AI will power the next era of digital productivity."
+          },
+          { 
+            name: "Raiyyan",
+            profession: "Creator and Digital Strategist",
+            img: "/raiyyanF.jpg",
+            msg: "Influence isn’t about what social media shows you - it’s about what you choose to consume, create, and promote. Filth or growth… the choice is always yours."
+          }
+        ].map((p, i) => (
+          <div key={`clone-${i}`} className="relative group/card min-w-[300px]">
+            <div className="absolute -inset-px rounded-2xl opacity-0 group-hover/card:opacity-80 transition-opacity duration-300 bg-gradient-to-b from-[#0ABBB7] to-[#7A4CD9] blur-xl" />
+            <div className="relative bg-white w-[300px] h-[260px] border rounded-2xl p-6 shadow-sm group-hover/card:shadow-2xl transition-all duration-300">
+              <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-4">
+                <Image src={p.img} width={80} height={80} alt={p.name} className="object-cover w-full h-full" />
+              </div>
+              <div className="text-center font-semibold">{p.name}</div>
+              <div className="text-center text-xs text-[#0A1A3F]/70">{p.profession}</div>
+              <p className="text-sm text-[#0A1A3F]/70 mt-3 text-center leading-relaxed">{p.msg}</p>
+            </div>
+          </div>
+        ))}
+
+      </div>
+    </div>
+  </div>
+
+  <style jsx>{`
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      animation: marquee 25s linear infinite;
+    }
+    .group:hover .animate-marquee {
+      animation-play-state: paused;
+    }
+  `}</style>
+</section>
+
 
 
         <section className="py-20">
